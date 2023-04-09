@@ -4,8 +4,8 @@ const mongoose = require("mongoose");
 const requireLogin = require("../middleware/requireLogin");
 const Post = mongoose.model("Post");
 const axios = require("axios");
-var sid = "ACd6e25c4544825090da4e748494c22df4";
-var auth_token = "eae457fbb9b3946ee0e89dc73c4074c8";
+var sid = "_";
+var auth_token = "_";
 var twilio = require("twilio")(sid, auth_token);
 const User = mongoose.model("User");
 
@@ -215,7 +215,7 @@ router.post("/sendSms", async (req, res) => {
   const { name, num, role, loc, percentage } = req.body;
   twilio.messages
     .create({
-      from: "+19853153116",
+      from: "+_",
       to: "+919644447030",
       body: `Hotspot ${loc}\n with garbage score:${percentage}% has been cleaned by ${role} ${name}\n Mobile No:${num}`,
     })

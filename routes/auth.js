@@ -8,27 +8,17 @@ const jwt = require("jsonwebtoken");
 const JWT_SECRET = "wrejr438rhuesjklews";
 const requireLogin = require("../middleware/requireLogin");
 const nodemailer = require("nodemailer");
-var sid = "ACd6e25c4544825090da4e748494c22df4";
-var auth_token = "eae457fbb9b3946ee0e89dc73c4074c8";
+var sid = "_";
+var auth_token = "_";
 var twilio = require("twilio")(sid, auth_token);
-// const sendgridTransport = require("nodemailer-sendgrid-transport");
-//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    second api
-// const transporter = nodemailer.createTransport(
-//   sendgridTransport({
-//     auth: {
-//       api_key:
-//         "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",
-//       // "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",
-//     },
-//   })
-// );
+
 let transporter = nodemailer.createTransport({
   service: "gmail",
   host: "ro-reply.gmail.com",
   secure: false,
   auth: {
-    user: "harshvardhan10052003@gmail.com",
-    pass: "mvqorxzqwqzfcazy",
+    user: "-",
+    pass: "-",
   },
 });
 
@@ -74,7 +64,7 @@ router.post("/signup", (req, res) => {
             // });
             twilio.messages
               .create({
-                from: "+19853153116",
+                from: "+-",
                 to: `+91${user.num}`,
                 body: `your login credetials are:\n Email Id: ${user.email}\n Password: ${password}`,
               })
